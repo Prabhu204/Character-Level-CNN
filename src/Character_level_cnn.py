@@ -23,10 +23,11 @@ class characterlevel(nn.Module):
                                    nn.ReLU(),
                                    nn.MaxPool1d(3))
 
-        dim = int((input_length-96)/27*n_convolutional_filter)
-        self.fc1 = nn.Sequential(nn.Linear(dim, n_fc_neurons))
+        # self.dim = int((input_length-96)/27*n_convolutional_filter)
+        self.fc1 = nn.Sequential(nn.Linear(self.dim, n_fc_neurons))
         self.fc2 = nn.Sequential(nn.Linear(n_fc_neurons, n_fc_neurons),
-                                 nn.Dropout(0.5))
+                                 nn.Dropout(0.5))   # applying drop out does not change number of neurons but it can
+                                                    # disable some neurons
         self.fc3 = nn.Sequential(nn.Linear(n_fc_neurons, n_classes))
 
 
@@ -47,7 +48,10 @@ class characterlevel(nn.Module):
         output = self.conv5(output)
         output = self.conv6(output)
 
-        output = output.view(output.size(0),-1)
+        # output = output.view(output.size(0), -1) or
+        # output = output.view(-1, output.size()[1]*output.size()[2]) or
+        # output = output.view(-1, self.dim) or
+        output = output.view(-1, 256*34)
         output = self.fc1(output)
         output = self.fc2(output)
         output = self.fc3(output)
