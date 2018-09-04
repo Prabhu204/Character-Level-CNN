@@ -8,19 +8,19 @@ class characterlevel(nn.Module):
     def __init__(self, n_classes = 14, input_dim = 68,input_length= 1014, n_convolutional_filter = 256, n_fc_neurons = 1024):
         super(characterlevel, self).__init__()
         self.conv1 = nn.Sequential(nn.Conv1d(input_dim, n_convolutional_filter, kernel_size= 7, padding= 0),
-                                   nn.ReLU,
+                                   nn.ReLU(),
                                    nn.MaxPool1d(3))
         self.conv2 = nn.Sequential(nn.Conv1d(n_convolutional_filter,n_convolutional_filter,kernel_size= 7, padding= 0),
-                                   nn.ReLU,
+                                   nn.ReLU(),
                                    nn.MaxPool1d(3))
         self.conv3 = nn.Sequential(nn.Conv1d(n_convolutional_filter,n_convolutional_filter, kernel_size= 3, padding= 0),
-                                   nn.ReLU)
+                                   nn.ReLU())
         self.conv4 = nn.Sequential(nn.Conv1d(n_convolutional_filter,n_convolutional_filter,kernel_size= 3, padding= 0),
-                                   nn.ReLU)
+                                   nn.ReLU())
         self.conv5 = nn.Sequential(nn.Conv1d(n_convolutional_filter, n_convolutional_filter, kernel_size= 3, padding= 0),
-                                   nn.ReLU)
+                                   nn.ReLU())
         self.conv6 = nn.Sequential(nn.Conv1d(n_convolutional_filter, n_convolutional_filter, kernel_size=3, padding=0),
-                                   nn.ReLU,
+                                   nn.ReLU(),
                                    nn.MaxPool1d(3))
 
         dim = int((input_length-96)/27*n_convolutional_filter)
