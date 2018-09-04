@@ -23,7 +23,7 @@ class characterlevel(nn.Module):
                                    nn.ReLU(),
                                    nn.MaxPool1d(3))
 
-        # self.dim = int((input_length-96)/27*n_convolutional_filter)
+        self.dim = int((input_length-96)/27*n_convolutional_filter)
         self.fc1 = nn.Sequential(nn.Linear(self.dim, n_fc_neurons))
         self.fc2 = nn.Sequential(nn.Linear(n_fc_neurons, n_fc_neurons),
                                  nn.Dropout(0.5))   # applying drop out does not change number of neurons but it can
