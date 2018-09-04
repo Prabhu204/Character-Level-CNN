@@ -38,6 +38,18 @@ class characterlevel(nn.Module):
                 module.weight.data.normal_(mean, std)
 
 
+    def forward(self, input):
+        input = input.transpose(1,2)
+        output = self.conv1(input)
+        output = self.conv2(output)
+        output = self.conv3(output)
+        output = self.conv4(output)
+        output = self.conv5(output)
+        output = self.conv6(output)
 
+        output = output.view(output.size(0),-1)
+        output = self.fc1(output)
+        output = self.fc2(output)
+        output = self.fc3(output)
 
-
+        return output
