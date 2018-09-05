@@ -55,5 +55,4 @@ class characterlevel(nn.Module):
         output = self.fc1(output)
         output = self.fc2(output)
         output = self.fc3(output)
-
         return output
