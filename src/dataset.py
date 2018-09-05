@@ -57,8 +57,3 @@ class Dataset_(Dataset):
 
         label = self.labels[index]
         return data, label
-
-
-
-
-
