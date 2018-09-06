@@ -3,3 +3,4 @@ Data/
 Data/new.csv
 sample.py
 trained_model
+src/__pycache__/

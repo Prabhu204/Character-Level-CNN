@@ -3,16 +3,13 @@ author: Prabhu
 
 """
 import os
-import sys
 import argparse
 import torch
-import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.autograd import Variable
 import torch.nn.functional as F
 
 from src.Performence_metrics import *
-from src.Character_level_cnn import characterlevel
 from src.dataset import Dataset_
 
 def get_args():
@@ -20,7 +17,7 @@ def get_args():
     parser.add_argument("-b", "--batch_size", type=int, default= 120)
     parser.add_argument("-m", "--max_length", type=int, default=1014)
     parser.add_argument("-d", "--dataset", type=str, default="Data/dbpedia_csv")
-    parser.add_argument("-g", "--gpu", default=False)
+    parser.add_argument("-g", "--gpu", default=True)
     parser.add_argument("-s", "--save_path", type= str, default="")
     parser.add_argument("-r", "--save_result", type=str, default="Result")
     parser.add_argument("-i","--import_model", default='trained_model')

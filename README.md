@@ -1,1 +1,1 @@
-# Charater-level-CNN
+# Character-level-CNN
