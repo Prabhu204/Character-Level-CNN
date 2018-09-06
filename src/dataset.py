@@ -32,7 +32,9 @@ class Dataset_(Dataset):
         df = pd.read_csv(file_path, names=['0', '1', '2'])
         df['added_str'] = df['1']+' '+df['2']  # merge 2 columns strings with a space in between them
         self.texts = df['added_str'].tolist()
-        self.labels = df['0'].tolist()
+        labels = df['0'].tolist()
+        self.labels = [item -1 for item in labels]
+        # self.labels = int(labels-1)
         self.char_wise_max_length_text = char_wise_max_length_text
         self.length = len(self.labels)
         if classes_file_path:
