@@ -37,8 +37,7 @@ class Dataset_(Dataset):
         # self.labels = int(labels-1)
         self.char_wise_max_length_text = char_wise_max_length_text
         self.length = len(self.labels)
-        if classes_file_path:
-            self.num_classes = sum(1 for _ in open(classes_file_path))  # giving 1 for each class
+        self.num_classes = len(set(self.labels)) # giving 1 for each class
                                                                         # in the classes file and then adding together.
 
     def __len__(self):
@@ -47,7 +46,7 @@ class Dataset_(Dataset):
     def __getitem__(self, index):
         raw_text = self.texts[index]
         data = np.array([self.identity_matrix[self.vocabulary.index(i)]
-                         for i in list(raw_text.lower()) if i in self.vocabulary], dtype= np.float32)
+                         for i in list(str(raw_text).lower()) if i in self.vocabulary], dtype= np.float32)
         if len(data)> self.char_wise_max_length_text:
             data = data[:self.char_wise_max_length_text]
 

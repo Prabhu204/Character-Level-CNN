@@ -25,11 +25,11 @@ def get_args():
     parser.add_argument("-b", "--batch_size", type=int, default= 120)
     parser.add_argument("-n", "--num_epochs", type= int, default= 10)
     parser.add_argument("-l", "--lr", type= float, choices=[0.01,0.001], default= 0.01, help=" recommended for sgd 0.01 and for adam 0.001")
-    parser.add_argument("-d", "--dataset", type=str, default="")
+    parser.add_argument("-d", "--dataset", type=str, default="Data")
     parser.add_argument("-g", "--gpu", action="store_true", default=True)
-    parser.add_argument("-s", "--save_path", type= str, default="/home/prabhu/Charater-level-CNN")
+    parser.add_argument("-s", "--save_path", type= str, default="Data")
     parser.add_argument("-t", "--model_name", type=str, default= "trained_model")
-    parser.add_argument("-r", "--save_result", type=str, default="/home/prabhu/Charater-level-CNN/Result")
+    parser.add_argument("-r", "--save_result", type=str, default="Result")
     args = parser.parse_args()
     return args
 
@@ -80,7 +80,7 @@ def train(opt):
             optimizer.step()
             train_metrics = get_metrics(b_true_label, prob_label, list_metrics=['Accuracy', 'Loss','Confusion_matrics'])
             res = "Training: Iteraion: {}/{} Epoch: {}/{} Accuracy:{} Loss:{}".format(iter+1,num_epoch_iter,epoch+1,opt.num_epochs,
-                train_metrics['Accuracy'], train_metrics['Loss'])
+                train_metrics['Accuracy'], loss)
 
             print(res)
         torch.save(model, opt.save_path + os.sep + opt.model_name)
