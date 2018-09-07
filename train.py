@@ -30,13 +30,14 @@ def get_args():
     parser.add_argument("-s", "--save_path", type= str, default="Data")
     parser.add_argument("-t", "--model_name", type=str, default= "trained_model")
     parser.add_argument("-r", "--save_result", type=str, default="Result")
+    parser.add_argument("-rn", "--result_name", type = str)
     args = parser.parse_args()
     return args
 
 
 def train(opt):
 
-    res_file = open(opt.save_result+ os.sep + "output.txt", "w")
+    res_file = open(opt.save_result+ os.sep + opt.result_name, "w")
     res_file.write("Select model parameters: {}".format(vars(opt)))
 
     training_set = Dataset_(opt.dataset+ os.sep+"train.csv", opt.dataset+os.sep+"classes.txt",
