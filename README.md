@@ -60,12 +60,14 @@ Implementation of Character level CNN for text classification
 
 **Example usage:**
 
+Before start using this code please download required datastes and save them in a directory with a name __Data__
+
 For training a model:
 
-python train.py -d 'Path to dataset' -n 'num of epochs' -s 'Directory name to save trained model' -r 'Path to save result'
+>python train.py -d 'Path to dataset' -n 'num of epochs' -s 'Directory name to save trained model' -r 'Path to save result'
 -rn 'name_of_the_result_file.txt'
 
 For testing a model:
 
-python test.py -b 'enter num of batch size' -i 'path of the saved model for evaluation'
+>python test.py -b 'enter num of batch size' -i 'path of the saved model for evaluation'
 
