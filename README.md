@@ -67,5 +67,5 @@ python train.py -d 'Path to dataset' -n 'num of epochs' -s 'Directory name to sa
 
 For testing a model:
 
-python test.py -b 'enter batch size' -i 'path of the saved model for evaluation'
+python test.py -b 'enter num of batch size' -i 'path of the saved model for evaluation'
 
