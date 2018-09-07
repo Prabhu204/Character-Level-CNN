@@ -27,7 +27,7 @@ For 25 epochs: _In progress_
 _Coming soon_
 
 
-**usage:** 
+**Usage:** 
 
 Implementation of Character level CNN for text classification
     
@@ -58,7 +58,7 @@ Implementation of Character level CNN for text classification
     [-i IMPORT_MODEL]
     
 
-**example usage:**
+**Example usage:**
 
 For training a model:
 
