@@ -26,3 +26,46 @@ For 25 epochs: _In progress_
 
 _Coming soon_
 
+
+**usage:** 
+
+Implementation of Character level CNN for text classification
+    
+    [-a ALPHABET] 
+   
+    [-m MAX_LENGTH]
+    
+    [-p {sgd,adam}]
+     
+    [-b BATCH_SIZE]
+     
+    [-n NUM_EPOCHS]
+     
+    [-l {0.01,0.001}] 
+        
+    [-d DATASET]
+      
+    [-g GPU] 
+     
+    [-s SAVE_PATH]
+    
+    [-t MODEL_NAME] 
+   
+    [-r SAVE_RESULT] 
+   
+    [-rn RESULT_NAME]
+    
+    [-i IMPORT_MODEL]
+    
+
+**example usage:**
+
+For training a model:
+
+python train.py -d 'Path to dataset' -n 'num of epochs' -s 'Directory name to save trained model' -r 'Path to save result'
+-rn 'name_of_the_result_file.txt'
+
+For testing a model:
+
+python test.py -b 'batch_size' -i 'path to saved trained model for evaluation'
+
